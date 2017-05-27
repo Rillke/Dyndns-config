@@ -3,7 +3,11 @@ Description=Dynamic DNS update watcher
 
 [Service]
 Type=simple
+Restart=always
 WorkingDirectory=/var/www/dyn-update
-ExecStartPre=echo "[`date`] Dynamic DNS update start watching" >> /var/log/dyndns-update.log
+ExecStartPre=mkdir -p /tmp/ddns_updates && echo "[`date`] Dynamic DNS update start watching" >> /var/log/dyndns-update.log
 ExecStart=/bin/bash /var/www/dyn-update/watch-changes.sh >> /var/log/dyndns-update.log &
+
+[Install]
+WantedBy=multi-user.target
 
