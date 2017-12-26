@@ -10,6 +10,9 @@ TINYDNS_SV_ROOT=/etc/service/tinydns/root
 UPDATES_DIR=/tmp/ddns_updates
 DATA_TMP="$TINYDNS_SV_ROOT/data.tmp"
 DATA_NEW="$TINYDNS_SV_ROOT/data"
+
+mkdir -p $UPDATES_DIR
+chmod a+rwx $UPDATES_DIR
  
 if [ -f "$TINYDNS_UP_LOCK" ]
 then
