@@ -35,7 +35,7 @@ touch "$TINYDNS_UP_LOCK"
 
 # first loop to read the lines from data
 # that means - adding new hosts only can be added manually to tinydns data file
-cd "${TINYDNS_SV_ROOT}" || echo "Can't cd into ${TINYDNS_SV_ROOT}" && exit 1
+cd "${TINYDNS_SV_ROOT}" || ( echo "Can't cd into ${TINYDNS_SV_ROOT}" ; exit 1 )
 while read -r LINE
 do
 
